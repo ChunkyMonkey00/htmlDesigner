@@ -40,7 +40,9 @@
 		.draggable {
 			width: 100px;
 			height: 100px;
-			background-color: #f00;
+			background-color: #ccc;
+			border-radius: 5px;
+			padding: 2px;
 			margin: 10px;
 		}
 
@@ -75,4 +77,12 @@
 
 .dropdown:hover .dropbtn {
  background-color: #3e8e41;
+}
+
+.corner-circle {
+ position: absolute;
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
+ background-color: red;
 }
