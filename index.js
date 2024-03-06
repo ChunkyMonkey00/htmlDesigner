@@ -265,50 +265,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener('keydown', function (event) {
     if (lastClickedElement) {
-      let moveAmount = 5; // 2px for absolute, 0.5% for scale
-      let rect = lastClickedElement.getBoundingClientRect();
-      let left = rect.left;
-      let top = rect.top;
+      let top;
+      let left;
 
-      if(positionType == "absolute") {
+      top = lastClickedElement.style.top;
+      left = lastClickedElement.style.left;
+      top = top.substring(0, left.length - 1);
+      left = left.substring(0, left.length - 1);
+      top = Number(top);
+      left = Number(left);
+
+      console.log(top, left);
+      moveAmount = 1;
       switch (event.key) {
         case 'ArrowUp':
-          lastClickedElement.style.top = `${top - moveAmount}px`;
+          lastClickedElement.style.top = `${top - moveAmount}%`;
           break;
         case 'ArrowDown':
-          lastClickedElement.style.top = `${top + moveAmount}px`;
+          lastClickedElement.style.top = `${top + moveAmount}%`;
           break;
         case 'ArrowLeft':
-          lastClickedElement.style.left = `${left - moveAmount}px`;
+          lastClickedElement.style.left = `${left - moveAmount}%`;
           break;
         case 'ArrowRight':
-          lastClickedElement.style.left = `${left + moveAmount}px`;
+          lastClickedElement.style.left = `${left + moveAmount}%`;
           break;
-      }
-      } else {
-        top = lastClickedElement.style.top;
-        left = lastClickedElement.style.left;
-        top = top.substring(0, left.length - 1);
-        left = left.substring(0, left.length - 1);
-        top = Number(top);
-        left = Number(left);
-        
-        console.log(top, left);
-        moveAmount = 1;
-        switch (event.key) {
-          case 'ArrowUp':
-            lastClickedElement.style.top = `${top - moveAmount}%`;
-            break;
-          case 'ArrowDown':
-            lastClickedElement.style.top = `${top + moveAmount}%`;
-            break;
-          case 'ArrowLeft':
-            lastClickedElement.style.left = `${left - moveAmount}%`;
-            break;
-          case 'ArrowRight':
-            lastClickedElement.style.left = `${left + moveAmount}%`;
-            break;
-        }
       }
     }
   });
