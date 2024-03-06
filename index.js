@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         newElement.href = '#';
         newElement.textContent = 'Link';
         break;
-      case 'P':
+      case 'Paragraph':
         newElement = document.createElement('p');
         newElement.textContent = 'Paragraph';
         break;
